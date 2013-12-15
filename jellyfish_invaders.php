@@ -1,14 +1,30 @@
 <?php
 /*
   Plugin Name: Jellyfish Invaders
-  Plugin URI: http://strawberryjellyfish.com/wordpress-plugin-jellyfish-invaders/
+  Plugin URI: http://strawberryjellyfish.com/jellyfish-invaders/
   Description: Randomly animates retro space invaders on your WordPress blog
   Author: Robert Miller <rob@strawberryjellyfish.com>
-  Version: 0.6
+  Version: 0.8.1
   Author URI: http://strawberryjellyfish.com/
  */
-?>
-<?php 
+
+/*
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+Online: http://www.gnu.org/licenses/gpl.txt
+*/
+
 /*
  *  Hooks and Actions
  */
@@ -30,7 +46,6 @@ $jellyfish_invaders_options = get_option('jellyfish_invaders_options');
 // only need scripts if viewing blog and invaders are enabled
 if (!is_admin() && ($jellyfish_invaders_options['enable'] == true)) {
     add_action('wp_enqueue_scripts', 'jellyfish_invaders_queue_scripts');
-    add_action('wp_footer', 'jellyfish_invaders_print_script',100);
 }
 
 
@@ -40,10 +55,39 @@ if (!is_admin() && ($jellyfish_invaders_options['enable'] == true)) {
 
 
 function jellyfish_invaders_queue_scripts() {
-    //enqueue Spritely jquery library for animation and necessary css to page footer
-    wp_register_script( 'spritely', plugins_url( 'js/jquery.spritely-0.6.js', __FILE__ ), array('jquery'), '', true );
-    wp_enqueue_script( 'spritely' );
-    wp_enqueue_style( 'jellyfish_invaders_style',plugins_url( 'jellyfish_invaders.css', __FILE__ ) );
+    // to save unnecessary requests and bandwidth, only include js scripts
+    // and css when invaders are needed. This is slightly complicated by the fact
+    // we can have them displaying on a per post basis.
+    
+    $jellyfish_invaders_options = get_option('jellyfish_invaders_options');
+    $need_invaders = false;    
+
+    if (!is_admin() && ($jellyfish_invaders_options['enable'] == true)) {
+        // most likely we need to print scripts
+       $need_invaders = true;
+       if ($jellyfish_invaders_options['use_custom_field'] == true) {
+           // but now only show invaders on specific pages
+           // check we need them before queueing up the js and css
+           if (is_single() OR is_page()) {
+                $cv = get_post_meta(get_the_ID(), 'jellyfish_invaders',true); 
+                if ( ($cv != 'true') && ($cv != 'on')){  
+                    // abort: no custom field, no invaders needed
+                    $need_invaders = false;
+                }
+           } else {
+                // abort: not a single page or post can't show them anyway
+                $need_invaders = false;
+           }
+        }
+    }
+
+    if ($need_invaders) {
+    //enqueue Spritely jquery library and js for animation and necessary css to page footer
+        wp_register_script( 'spritely', plugins_url( 'js/jquery.spritely-0.6.js', __FILE__ ), array('jquery'), '', true );
+        wp_enqueue_script( 'spritely' );
+        wp_enqueue_style( 'jellyfish_invaders_style',plugins_url( 'jellyfish_invaders.css', __FILE__ ) );
+        add_action('wp_footer', 'jellyfish_invaders_print_script',100);
+    }  
 }
 
 
@@ -93,7 +137,7 @@ function jellyfish_invaders_config_page() {
     <form action="options.php" method="post">
     <?php settings_fields('jellyfish_invaders_options'); ?>
     <?php do_settings_sections('jellyfish_invaders'); ?>
-    <input name="Submit" type="submit" value="Save Changes"/>
+    <input name="Submit" type="submit" class="button action" value="Save Changes"/>
     </form>
 </div>
 <?php
