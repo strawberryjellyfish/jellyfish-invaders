@@ -23,7 +23,7 @@ through the comprehensive admin control panel.
 
 Demo and more information at the plugin homepage:
 
-http://strawberryjellyfish/wordpress-plugins/jellyfish-invaders
+http://strawberryjellyfish.com/wordpress-plugins/jellyfish-invaders
 
 = Configuring your Invaders =
 
@@ -96,7 +96,9 @@ menu of your WordPress admin.
 
 == Frequently Asked Questions ==
 
+
 == Screenshots ==
+
 
 == Changelog ==
 
