@@ -2,83 +2,120 @@
 Contributors: toxicToad
 Author URI: http://strawberryjellyfish.com/
 Donate link: http://strawberryjellyfish.com/donate/
-Plugin URI: http://strawberryjellyfish.com/wordpress-plugin-jellyfish-invaders/
+Plugin URI: http://strawberryjellyfish.com/wordpress-plugins/jellyfish-invaders/
 Tags: retro, space invaders, 8bit, animation, visual effect, animated aliens, sci fi, gaming,
 Requires at least: 3.0
-Tested up to: 3.8
-Stable tag: 0.8.1
+Tested up to: 4.0
+Stable tag: 0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Adds animated flying retro space invaders to your blog. You can configure, 
-number, size, behaviour and where they appear.
+Add pixelated pets to your site in the form of funky animated retro
+space invaders.
 
 == Description ==
 
-This plugin for WordPress adds a number of retro space invaders to your blog pages
-that will randomly fly around, and if you choose home in on any mouse clicks.
+Your new pixelated pals will randomly fly around, and if you choose, home in
+on any mouse clicks. The glowing retro 8bit scan-line effect space invaders
+work on most backgrounds but obviously are more suited to a dark theme. It's
+easy to configure the number, size, behaviour and where the invaders appear
+through the comprehensive admin control panel.
 
-You can choose the number, size, speed, and behaviour of the space invaders as 
-well as limit them to a specific area of your pages, a single post, or the entire
-blog.
+Demo and more information at the plugin homepage:
 
-Great glowing retro 8bit scanline effect space invaders work on most backgrounds
-but obviously are more suited to a dark theme.
+http://strawberryjellyfish/wordpress-plugins/jellyfish-invaders
 
-Demo
+= Configuring your Invaders =
 
-You can see them in action on the plugin page at
-http://strawberryjellyfish.com/wordpress-plugin-jellyfish-invaders/
+A new settings page will be added to your Admin Appearance section, where you
+can change the look and behaviour of your new binary buddies. Here's an
+overview of the available settings:
 
-This plugin uses the excellent Spritely library for jQuery. Read more about 
-Spritely at http://www.spritely.net/
+* **Enable Invaders** Turn the invaders off and on. A quick way to
+temporarily disable the invaders without deactivating the plugin.
 
+* **Where to show** you can choose either everywhere OR only on individual
+posts or pages. You can use this second option to just show them on your home
+page or a single post for example.
 
-==Usage==
+* **The invaders will look out for a custom field called "jellyfish_invaders"
+on any post or page. If they find one and it has a value of 'true' or 'on'
+they will populate the page.
 
-The plugin will show some invaders on every page of your blog when first installed.
-To change this to your liking you will find a setting page in the Appearance menu 
-of your WordPress admin, Here you can configure your invaders. 
+* **Number of Invaders** how many individual space invaders you want, keep
+this number quite low to avoid slowing down your page too much
 
-General Settings
+* **Invader Size** size of the invaders
 
-* Enable Invaders - If you want to turn Invaders on or off use this
+* **Fly Time** how long the invaders fly around before pausing in
+milliseconds (1000 = 1 second)
 
-* Where to show	- you can choose either everywhere OR only on individual posts 
-or pages that contain the custom field "jellyfish_invaders". You can use this 
-second option to just show them on your home page or a single post for example.
-Simply add the custom field "jellyfish_invaders" with a value of "true" or "on" 
-to any post you want them to appear.
+* **Pause Time** How long the invaders Pause (or wiggle see below) for
+between flying cycles.
 
-Boundries
+* **Random** adds some variation to the time settings so each invader
+acts a little differently.
 
-By default the invaders will be free to roam randomly around the entire document.
-If you want to restrict them to an area for example a header, sidebar or blank
-area on your page to avoid distracting from the main content simply uncheck the
-"Ignore Boundries" checkbox and fill in the top, left, right and bottom pixel
-values of your invisible invader electric fence.
+* **Wiggle** Instead of pausing the invaders will do a missile evasive
+wiggle.
 
+* **Attack Mode** None, One or All of the invaders will home in on any
+mouse clicks.
 
+By default the invaders will be free to roam randomly around the entire page,
+but there are a couple of methods to confine them to specific areas if you wish.
+
+* **Containing Element** the invaders will only roam within the element set
+here, normally that's body (the whole page) but you may enter the id of an
+element on the page to confine them to a specific area. You can see this in
+effect right here where the invaders have been limited to the section at the
+top of the page.
+
+* **Z-Index** If you'd like the invaders to hide behind certain layers on
+your page you can set an appropriate z-index here, obviously this setting it
+very dependant on the structure of your WordPress theme.
+
+* **Use Electric Fence** Check this option and use the top, left, right
+and bottom options to define a virtual fence that will contain the invaders.
+The values you enter represent pixels position on the entire document. Note,
+this option will override any custom setting for Containing Element.
 
 == Installation ==
 
-Extract the zip file and just drop the contents in the wp-content/plugins/ 
-directory of your WordPress installation and then activate the Plugin from 
-Plugins page. Visit your blog and marvel at the spectacle, then go to the 
-Jellyfish Invaders settings page in the Appearance menu of your WordPress 
-admin to play with the settings.
+Either install and activate the plugin via your WordPress Admin
 
-== Frequently Asked Questions == 
+Or
 
-None yet
+Extract the zip file and just drop the contents in the wp-content/plugins/ directory of your WordPress installation and then activate the Plugin from
+Plugins page.
+
+When first installed the Jellyfish Invaders plugin will show some invaders on
+every page of your blog. You can easily change this to your liking by visiting
+the setting page, you will find a link to the settings page in the Appearance
+menu of your WordPress admin.
+
+== Frequently Asked Questions ==
+
+== Screenshots ==
 
 == Changelog ==
 
-* 0.8.1 tweaked admin for WordPress 3.8
-* 0.75  changed the way scripts are queued to ensure javascript is only included 
-when invaders are actually needed.        
-* 0.6   initial release
+= 0.8 =
+* Tested up to WordPress 4.0
+* Added Containing Element option: Confine invaders to a specific page element
+* Added Z-index support: Configure invaders z-index for layering in document
+* Updated Admin screen
+* Updated Spritely version
+
+= 0.7 =
+* changed the way scripts are queued to ensure JavaScript is only included when invaders are actually needed.
+
+= 0.6 =
+* Initial release
+
 
 == Upgrade Notice ==
 
-== Screenshots ==
+There should be no issues upgrading from a previous version. Visit the plugin
+settings page in Admin > Appearance > jellyfish Invaders to configure new
+options.

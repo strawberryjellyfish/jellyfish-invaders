@@ -1,4 +1,4 @@
-/* 
+/*
     Document   : jellyfish_invaders.css
     Created on : 02/01/2013, 1:12:13 PM
     Author     : Rob Miller <rob@strawberryjellyfish.com>
@@ -13,7 +13,6 @@
     left: 50%;
     width: 220px;
     height: 180px;
-    z-index: 1000;
 }
 .medium-invader {
     background: transparent url('images/space_invader_medium.png') 0 0 no-repeat;
@@ -22,7 +21,6 @@
     left: 50%;
     width: 110px;
     height: 90px;
-    z-index: 1000;
 }
 .small-invader {
     background: transparent url('images/space_invader_small.png') 0 0 no-repeat;
@@ -31,5 +29,4 @@
     left: 50%;
     width: 55px;
     height: 45px;
-    z-index: 1000;
 }
