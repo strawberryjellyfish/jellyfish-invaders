@@ -4,7 +4,7 @@
   Plugin URI: http://strawberryjellyfish.com/jellyfish-invaders/
   Description: Randomly animates retro space invaders on your WordPress blog
   Author: Robert Miller <rob@strawberryjellyfish.com>
-  Version: 0.8
+  Version: 0.9
   Author URI: http://strawberryjellyfish.com/
  */
 

@@ -6,7 +6,7 @@ Plugin URI: http://strawberryjellyfish.com/wordpress-plugins/jellyfish-invaders/
 Tags: retro, space invaders, 8bit, animation, visual effect, animated aliens, sci fi, gaming,
 Requires at least: 3.0
 Tested up to: 4.0
-Stable tag: 0.8
+Stable tag: 0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -100,14 +100,14 @@ menu of your WordPress admin.
 
 == Changelog ==
 
-= 0.8 =
+= 0.9 =
 * Tested up to WordPress 4.0
 * Added Containing Element option: Confine invaders to a specific page element
 * Added Z-index support: Configure invaders z-index for layering in document
 * Updated Admin screen
 * Updated Spritely version
 
-= 0.7 =
+= 0.8.1 =
 * changed the way scripts are queued to ensure JavaScript is only included when invaders are actually needed.
 
 = 0.6 =
