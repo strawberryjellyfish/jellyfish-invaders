@@ -5,7 +5,7 @@ Donate link: http://strawberryjellyfish.com/donate/
 Plugin URI: http://strawberryjellyfish.com/wordpress-plugins/jellyfish-invaders/
 Tags: retro, space invaders, 8bit, animation, visual effect, animated aliens, sci fi, gaming,
 Requires at least: 3.0
-Tested up to: 4.0
+Tested up to: 4.1
 Stable tag: 0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -38,9 +38,9 @@ temporarily disable the invaders without deactivating the plugin.
 posts or pages. You can use this second option to just show them on your home
 page or a single post for example.
 
-* **The invaders will look out for a custom field called "jellyfish_invaders"
-on any post or page. If they find one and it has a value of 'true' or 'on'
-they will populate the page.
+* **Custom Field** The invaders will look out for a custom field called
+"jellyfish_invaders" on any post or page. If they find one and it has
+a value of 'true' or 'on' they will populate the page.
 
 * **Number of Invaders** how many individual space invaders you want, keep
 this number quite low to avoid slowing down your page too much
