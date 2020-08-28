@@ -465,7 +465,7 @@ function jellyfish_invaders_print_script() {
             $pause = $options['pause'];
         }
         $script.="
-            var jellyfishInvaderDiv$count = $('<div>', { id: 'jellyfishInvader$count', class: '$class'})
+            var jellyfishInvaderDiv$count = jQuery('<div>', { id: 'jellyfishInvader$count', class: '$class'})
                 .css('z-index', $z_index)
                 .appendTo('$container')
                 .sprite({
@@ -487,15 +487,15 @@ function jellyfish_invaders_print_script() {
             \n";
         $count ++;
     }
-    echo "<script>jQuery(document).ready(function($) {";
+    echo "<script>jQuery(document).ready(function() {";
     echo $script;
 
     // add a ftytotap even if attack mode is set, either just first invader or all elements with
     // invader classes (hopefully these are just invaders!)
     if ( $options['attack_mode'] === 3 ) {
-        echo "$('$container').flyToTap({el_to_move: '.".$class."', ms: 500, do_once: false});";
+        echo "jQuery('$container').flyToTap({el_to_move: '.".$class."', ms: 500, do_once: false});";
     } elseif ( $options['attack_mode'] === 2 ) {
-        echo "$('$container').flyToTap({el_to_move: '#jellyfishInvader0', ms: 500, do_once: false});";
+        echo "jQuery('$container').flyToTap({el_to_move: '#jellyfishInvader0', ms: 500, do_once: false});";
     }
 
     echo "});</script>";
